@@ -16,21 +16,43 @@ export const AppWrapperMain = styled.div`
   height: ${p => p.fullHeight ? '70vh' : '95vh'};
 `
 
-export const AppWrapperMainFirstArea = styled.textarea`
+export const AppWrapperMainFirstArea = styled.div`
   width: 35%;
-  resize: none;
-  padding: 16px;
-  outline: none;
   display: flex;
-  font-size: 16px;
+  overflow: hidden;
   flex-direction: column;
-  color: ${color.background};
-  font-family: Arial, sans-serif;
   border: 1px solid ${color.border};
 `
 
 export const AppWrapperMainSecondArea = styled(AppWrapperMainFirstArea)`
   margin-left: 5%;
+`
+
+export const AppWrapperMainThirdArea = styled(AppWrapperMainSecondArea)`
+  border: none;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+`
+
+export const AppWrapperMainThirdAreaUpload = styled.input`
+  display: none;
+`
+
+export const AppWrapperMainThirdAreaUploadButton = styled.button`
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: max-content;
+  padding: 10px 15px;
+  border-radius: 7px;
+  height: max-content;
+  color: ${color.consoleFont};
+  background: ${color.border};
+`
+
+export const AppWrapperMainThirdAreaStartConsultation = styled(AppWrapperMainThirdAreaUploadButton)`
+  margin-left: 10px;
 `
 
 export const AppWrapperTerminal = styled.div`
