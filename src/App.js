@@ -3,9 +3,6 @@ import {
     AppWrapper,
     AppWrapperMain,
     AppWrapperMainFirstArea,
-    AppWrapperMainSecondArea,
-    AppWrapperMainThirdArea, AppWrapperMainThirdAreaStartConsultation, AppWrapperMainThirdAreaUpload,
-    AppWrapperMainThirdAreaUploadButton,
     AppWrapperTerminal,
     AppWrapperTerminalBody,
     AppWrapperTerminalHeader,
@@ -18,18 +15,26 @@ import "prismjs/components/prism-clike";
 import "prismjs/components/prism-javascript";
 import "prismjs/themes/prism.css";
 import ArrowSVG from './assets/arrow.svg'
+import Modal from "./components/Modal/Modal";
+import Header from "./components/Header/Header";
+import {remoteData} from "./SES_KB";
+import {color} from "./config";
 
 function App() {
     const uploadButtonRef = useRef(null)
     const [code, setCode] = useState('')
+    const [parsedCode, setParsedCode] = useState(remoteData)
+    const [consultingStatus, setConsultingStatus] = useState(false)
     const [consoleStatus, setConsoleStatus] = useState(false)
     const [choosenFile, chooseFile] = useState('')
     const [selectedFile, selectFile] = useState('')
     const [mimeType, setMimeType] = useState('')
     const [fileName, setFileName] = useState('')
     const [file, setFile] = useState('')
+    const [logCounter, setLogCounter] = useState(0)
 
     const consoleStatusHandler = () => {
+        setLogCounter(0)
         setConsoleStatus(!consoleStatus)
     }
 
@@ -46,7 +51,6 @@ function App() {
         }
         rawFile.send(null);
     }
-
 
     const uploadFileHandler = event => {
         let file = event.target.files[0];
@@ -108,13 +112,60 @@ function App() {
     const controlUploadButtonHandler = () => uploadButtonRef?.current?.click()
 
     const startConsultationHandler = () => {
-    //    set consulting status
-    //    create consulting modal view
-    //    create logic by text rules
+        setConsultingStatus(!consultingStatus)
+        //    create logic by text rules
+    }
+
+    const exportDataHandler = () => {
+        const element = document.createElement("a");
+        const file = new Blob([code], {type: 'text/plain'});
+        element.href = URL.createObjectURL(file);
+        element.download = "myFile.txt";
+        document.body.appendChild(element); // Required for this to work in FireFox
+        element.click();
+    }
+
+    const setLog = (type, key, value) => {
+        const allowedTypes = {
+            'warning': {
+                backgroundColor: color.keyWord2,
+                textColor: '#000'
+            },
+            'error': {
+                backgroundColor: color.keyWord3,
+                textColor: '#000'
+            },
+        }
+        if (!Object.keys(allowedTypes).includes(type)) {
+            throw new Error( 'Invalid log type')
+        }
+        setLogCounter(prevState => prevState + 1)
+        return (
+            <AppWrapperTerminalBody
+                textColor={allowedTypes[type].textColor}
+                backgroundColor={allowedTypes[type].backgroundColor}
+            >
+                {key}: {value}
+            </AppWrapperTerminalBody>
+        )
     }
 
     return (
         <AppWrapper>
+            {
+                consultingStatus &&
+                <Modal
+                    parsedCode={parsedCode}
+                    setConsultingStatus={setConsultingStatus}
+                />
+            }
+            <Header
+                uploadButtonRef={uploadButtonRef}
+                exportDataHandler={exportDataHandler}
+                uploadFileHandler={uploadFileHandler}
+                startConsultationHandler={startConsultationHandler}
+                controlUploadButtonHandler={controlUploadButtonHandler}
+            />
             <AppWrapperMain
                 fullHeight={consoleStatus}
             >
@@ -134,44 +185,14 @@ function App() {
                         }}
                     />
                 </AppWrapperMainFirstArea>
-                <AppWrapperMainSecondArea>
-                    <Editor
-                        value={code}
-                        onValueChange={(code) => setCode(code)}
-                        highlight={(code) => highlight(code, languages.js)}
-                        padding={10}
-                        style={{
-                            fontFamily: '"Fira code", "Fira Mono", monospace',
-                            fontSize: 12,
-                            width: '104%',
-                            height: '100%',
-                            overflowY: 'auto',
-                            boxSizing: 'content-box'
-                        }}
-                    />
-                </AppWrapperMainSecondArea>
-                <AppWrapperMainThirdArea>
-                    <AppWrapperMainThirdAreaUpload
-                        type={'file'}
-                        ref={uploadButtonRef}
-                        onChange={uploadFileHandler}
-                    />
-                    <AppWrapperMainThirdAreaUploadButton
-                        onClick={controlUploadButtonHandler}
-                    >
-                        {'Upload file'}
-                    </AppWrapperMainThirdAreaUploadButton>
-                    <AppWrapperMainThirdAreaStartConsultation
-                        onClick={startConsultationHandler}
-                    >
-                        {'Start consultation'}
-                    </AppWrapperMainThirdAreaStartConsultation>
-                </AppWrapperMainThirdArea>
             </AppWrapperMain>
             <AppWrapperTerminal>
                 <AppWrapperTerminalHeader>
                     <AppWrapperTerminalHeaderTitle>
-                        {'Console'}
+                        {'Console'} {
+                        !logCounter ||
+                            <div>{logCounter}</div>
+                    }
                     </AppWrapperTerminalHeaderTitle>
                     <AppWrapperTerminalHeaderIcon
                         src={ArrowSVG}
@@ -182,9 +203,7 @@ function App() {
                 </AppWrapperTerminalHeader>
                 {
                     consoleStatus &&
-                    <AppWrapperTerminalBody>
-                        {'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum porttitor enim at mattis consectetur. Suspendisse potenti. Duis dignissim vestibulum nulla. Aenean aliquam viverra sapien, quis tempor dolor aliquet non. Nam tortor quam, vestibulum eget tincidunt nec, pulvinar in justo. Aliquam erat volutpat. Nam facilisis massa efficitur imperdiet finibus. Suspendisse ut nisi augue. Donec et efficitur diam, in lobortis nisi. Vivamus suscipit felis id risus consequat, sed sollicitudin erat venenatis. Donec tempus turpis leo, non imperdiet nunc elementum tristique.'}
-                    </AppWrapperTerminalBody>
+                    setLog('warning', 'Error', 'Message')
                 }
             </AppWrapperTerminal>
         </AppWrapper>

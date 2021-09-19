@@ -17,26 +17,11 @@ export const AppWrapperMain = styled.div`
 `
 
 export const AppWrapperMainFirstArea = styled.div`
-  width: 35%;
+  width: 100%;
   display: flex;
   overflow: hidden;
   flex-direction: column;
   border: 1px solid ${color.border};
-`
-
-export const AppWrapperMainSecondArea = styled(AppWrapperMainFirstArea)`
-  margin-left: 5%;
-`
-
-export const AppWrapperMainThirdArea = styled(AppWrapperMainSecondArea)`
-  border: none;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-between;
-`
-
-export const AppWrapperMainThirdAreaUpload = styled.input`
-  display: none;
 `
 
 export const AppWrapperMainThirdAreaUploadButton = styled.button`
@@ -49,10 +34,6 @@ export const AppWrapperMainThirdAreaUploadButton = styled.button`
   height: max-content;
   color: ${color.consoleFont};
   background: ${color.border};
-`
-
-export const AppWrapperMainThirdAreaStartConsultation = styled(AppWrapperMainThirdAreaUploadButton)`
-  margin-left: 10px;
 `
 
 export const AppWrapperTerminal = styled.div`
@@ -72,9 +53,22 @@ export const AppWrapperTerminalHeader = styled.div`
   justify-content: space-between;
 `
 
-export const AppWrapperTerminalHeaderTitle = styled.p`
+export const AppWrapperTerminalHeaderTitle = styled.div`
+  display: flex;
+  align-items: center;
   color: ${color.consoleFont};
   font-family: Arial, sans-serif;
+  
+  & div {
+    width: auto;
+    padding: 4px;
+    display: flex;
+    margin-left: 5px;
+    align-items: center;
+    border-radius: 15px;
+    justify-content: center;
+    background-color: ${color.keyWord3};
+  }
 `
 
 export const AppWrapperTerminalHeaderIcon = styled.img`
@@ -86,12 +80,11 @@ export const AppWrapperTerminalHeaderIcon = styled.img`
 
 export const AppWrapperTerminalBody = styled.p`
   width: 100%;
-  height: 25vh;
   padding: 1vh 1vw;
   overflow-y: auto;
-  color: ${color.consoleFont};
+  color: ${p => p.textColor};
   font-family: Arial, sans-serif;
-  background-color: ${color.background};
+  background-color: ${p => p.backgroundColor};
   
   &::-webkit-scrollbar {
     width: 4px;
