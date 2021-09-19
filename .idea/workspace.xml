@@ -11,16 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5b0b5e4-fd67-44a7-874a-c8fdc245a331" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/SES_KB.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/close.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/Header.styled.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.styled.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.styled.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.styled.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +86,7 @@
       <updated>1631309372004</updated>
       <workItem from="1631309381128" duration="4110000" />
       <workItem from="1631827463594" duration="3582000" />
-      <workItem from="1632048125719" duration="8505000" />
+      <workItem from="1632048125719" duration="8809000" />
     </task>
     <servers />
   </component>
@@ -145,9 +137,9 @@
     <state width="1492" height="204" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1632048274518" />
     <state width="1876" height="277" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1631831555623" />
     <state width="1876" height="277" key="GridCell.Tab.0.right/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1631313494925" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1632051241788">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1632056910956">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1632051241788" />
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1632056910956" />
   </component>
 </project>

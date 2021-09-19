@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import {
     AppWrapper,
     AppWrapperMain,
@@ -36,7 +36,14 @@ function App() {
     const consoleStatusHandler = () => {
         setLogCounter(0)
         setConsoleStatus(!consoleStatus)
+        if (!consoleStatus) {
+            setLogCounter(0)
+        }
     }
+
+    useEffect(() => {
+        setLogCounter(prevState => prevState + 1)
+    }, [])
 
     function readTextFile(file) {
         let rawFile = new XMLHttpRequest();
@@ -137,9 +144,8 @@ function App() {
             },
         }
         if (!Object.keys(allowedTypes).includes(type)) {
-            throw new Error( 'Invalid log type')
+            throw new Error('Invalid log type')
         }
-        setLogCounter(prevState => prevState + 1)
         return (
             <AppWrapperTerminalBody
                 textColor={allowedTypes[type].textColor}
@@ -191,7 +197,7 @@ function App() {
                     <AppWrapperTerminalHeaderTitle>
                         {'Console'} {
                         !logCounter ||
-                            <div>{logCounter}</div>
+                        <div>{logCounter}</div>
                     }
                     </AppWrapperTerminalHeaderTitle>
                     <AppWrapperTerminalHeaderIcon
