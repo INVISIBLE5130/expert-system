@@ -4,16 +4,16 @@ import {color} from "./config";
 export const AppWrapper = styled.div`
   width: 100%;
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   flex-direction: column;
 `
 
 export const AppWrapperMain = styled.div`
   width: 100%;
+  height: 100%;
   display: flex;
   padding: 5vh 5vw;
   background-color: ${color.consoleFont};
-  height: ${p => p.fullHeight ? '70vh' : '95vh'};
 `
 
 export const AppWrapperMainFirstArea = styled.div`
