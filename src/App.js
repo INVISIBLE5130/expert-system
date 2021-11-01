@@ -17,7 +17,7 @@ import "prismjs/themes/prism.css";
 import ArrowSVG from './assets/arrow.svg'
 import Modal from "./components/Modal/Modal";
 import Header from "./components/Header/Header";
-import {remoteData} from "./SES_KB";
+import {remoteData as rData, remoteData} from "./SES_KB";
 import {color} from "./config";
 
 function App() {
@@ -45,6 +45,83 @@ function App() {
         setLogCounter(prevState => prevState + 1)
     }, [])
 
+    const eslParser = (str, opts) => {
+        const options = opts || {};
+        const {logs} = options;
+
+        const kbObject = {
+            data: {},
+            rules: []
+        };
+
+        const dataObj = str
+            .split(';')
+            .map(row => row.replace(/(\r\n|\n|\r)/gm, '').trim())
+            .filter(str => str)
+            .map(row => {
+                if (row.substr(0, 5) === 'allow') {
+                    const rowData = row.split('=');
+                    const parsedKey = rowData[0]
+                        .replace('allow', '')
+                        .replace('(', '')
+                        .replace(')', '')
+                        .replace(/\"/gm, '')
+                        .trim();
+                    const parsedValues = rowData[1].split(',').map(v => v.trim());
+                    kbObject.data[parsedKey] = {allows: parsedValues};
+                } else if (row.substr(0, 8) === 'question') {
+                    const rowData = row.split('=');
+                    const parsedKey = rowData[0]
+                        .replace('question', '')
+                        .replace('(', '')
+                        .replace(')', '')
+                        .replace(/\"/gm, '')
+                        .trim();
+                    const parsedValues = rowData[1].replace(/\"/gm, '').trim();
+
+                    kbObject.data[parsedKey] = {
+                        questions: parsedValues,
+                        allows: kbObject.data[parsedKey].allows,
+                    };
+                } else if (row.substr(0, 4) === 'rule') {
+                    const rowData = row.split(':')[1].split('then');
+                    const ruleObj = {
+                        conditions: {},
+                        action: {}
+                    };
+
+                    // if( rowData[0].includes('&') ){
+                    rowData[0].split('&').forEach(cond => {
+                        const condData = cond.split('=');
+                        ruleObj.conditions[condData[0].trim()] = condData[1].trim();
+                    });
+                    // }else{
+                    //     const condData = rowData[0].split('=');
+                    //     ruleObj[ condData[0] ] = condData[1];
+                    // }
+                    rowData[1].split('&').forEach(cond => {
+                        const condData = cond.split('=');
+                        ruleObj.action[condData[0].trim()] = condData[1].trim();
+                    });
+
+                    kbObject.rules.push(ruleObj);
+                } else {
+                    throw new Error('Line must start on allow | question | rule');
+                }
+                return row;
+            });
+
+        let i = 1;
+
+        if (logs) {
+            dataObj.forEach(row => {
+                console.log(`${i++} | ` + JSON.stringify(row));
+            });
+        }
+
+        return kbObject;
+    };
+
     function readTextFile(file) {
         let rawFile = new XMLHttpRequest();
         rawFile.open("GET", file, false);
@@ -52,12 +129,16 @@ function App() {
             if (rawFile.readyState === 4) {
                 if (rawFile.status === 200 || rawFile.status == 0) {
                     let allText = rawFile.responseText;
+                    const cText = eslParser(allText)
+                    setParsedCode(cText)
                     setCode(allText);
                 }
             }
         }
         rawFile.send(null);
     }
+
+    console.log(parsedCode)
 
     const uploadFileHandler = event => {
         let file = event.target.files[0];

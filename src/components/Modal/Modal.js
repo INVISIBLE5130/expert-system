@@ -3,7 +3,9 @@ import {
     ModalWrapper,
     ModalWrapperWindow,
     ModalWrapperWindowBody,
-    ModalWrapperWindowBodyAnswerButton, ModalWrapperWindowBodyAnswerButtons, ModalWrapperWindowBodyAnswerButtonsItem,
+    ModalWrapperWindowBodyAnswerButton,
+    ModalWrapperWindowBodyAnswerButtons,
+    ModalWrapperWindowBodyAnswerButtonsItem,
     ModalWrapperWindowBodyAnswerInput,
     ModalWrapperWindowBodyQuestion,
     ModalWrapperWindowHeader,
@@ -11,6 +13,7 @@ import {
     ModalWrapperWindowHeaderTitle, ModalWrapperWindowResultTitle
 } from "./Modal.styled";
 import Close from '../../assets/close.svg'
+import {remoteData as rData} from "../../SES_KB";
 
 function Modal(props) {
     const {
@@ -53,7 +56,7 @@ function Modal(props) {
         })
     }
 
-    const setQuestion = (question, buttons) => {
+    const setQuestion = (question, buttons, q) => {
         return (
             <>
                 <ModalWrapperWindowBodyQuestion>
@@ -61,10 +64,13 @@ function Modal(props) {
                 </ModalWrapperWindowBodyQuestion>
                 <ModalWrapperWindowBodyAnswerButtons>
                     {
-                        buttons?.map((button, index) => {
+                        buttons?.map(button => {
                             return (
                                 <ModalWrapperWindowBodyAnswerButtonsItem
-                                    onClick={() => answerIndexHandler(index)}
+                                    onClick={() => answerIndexHandler({
+                                        question: q,
+                                        answer: button
+                                    })}
                                 >
                                     {button}
                                 </ModalWrapperWindowBodyAnswerButtonsItem>
@@ -82,6 +88,7 @@ function Modal(props) {
             searchKey: '',
             localKeys: {}
         })
+        setRemoteData(Object.entries(rData?.data))
     }
 
     const showResult = result => {
@@ -109,9 +116,19 @@ function Modal(props) {
         )
     }
 
-    const answerIndexHandler = index => {
-        console.log(index)
+    const answerIndexHandler = (d) => {
+        setRemoteData(remoteData.filter(e => e[0] !== d.question))
+        console.log(d)
+        setData({
+            searchKey: searchKey,
+            localKeys: {
+                ...data.localKeys,
+                [d.question]: d.answer
+            }
+        })
     }
+
+    console.log(data)
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -134,6 +151,8 @@ function Modal(props) {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [modalRef, modalWindowRef]);
+
+    console.log(remoteData)
 
     return (
         <ModalWrapper
@@ -168,8 +187,9 @@ function Modal(props) {
                                     {'Send'}
                                 </ModalWrapperWindowBodyAnswerButton>
                             </>
-                            // : setQuestion(remoteData[0][1]?.question, remoteData[0][1]?.allows)
-                            : showResult('test')
+                            : remoteData.length !== 0
+                            ? setQuestion(remoteData[0][1]?.question, remoteData[0][1]?.allows, remoteData[0][0])
+                            : showResult(JSON.stringify(parsedCode.rules.filter(e => JSON.stringify(e.conditions) === JSON.stringify(data.localKeys))[0]?.action))
                     }
                 </ModalWrapperWindowBody>
             </ModalWrapperWindow>
