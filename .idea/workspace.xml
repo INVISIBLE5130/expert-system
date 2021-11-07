@@ -11,12 +11,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e5b0b5e4-fd67-44a7-874a-c8fdc245a331" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dialog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/kbParser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/__snapshots__/Modal.test.js.snap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SES_KB.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SES_KB.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +56,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -63,6 +65,32 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
+    <configuration name="Check modal" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/Modal/Modal.test.js" />
+      <test-names>
+        <test-name value="Check modal" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="render correctly text component" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/components/Modal/Modal.test.js" />
+      <test-names>
+        <test-name value="render correctly text component" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="dialog.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/dialog.js" working-dir="$PROJECT_DIR$/src">
       <method v="2" />
     </configuration>
@@ -76,9 +104,21 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="npm.start" />
+        <item itemvalue="Jest.Check modal" />
+        <item itemvalue="Jest.render correctly text component" />
         <item itemvalue="Node.js.dialog.js" />
       </list>
     </recent_temporary>
@@ -99,7 +139,9 @@
       <workItem from="1632064018345" duration="960000" />
       <workItem from="1634586334152" duration="1387000" />
       <workItem from="1635692845140" duration="5821000" />
-      <workItem from="1635792992716" duration="1863000" />
+      <workItem from="1635792992716" duration="2026000" />
+      <workItem from="1635884145415" duration="2701000" />
+      <workItem from="1636298430772" duration="2204000" />
     </task>
     <servers />
   </component>
@@ -126,37 +168,56 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1631309415677" />
-    <state width="1876" height="274" key="GridCell.Tab.0.bottom" timestamp="1635794312814">
+    <state x="660" y="176" key="#render_correctly_text_component" timestamp="1635885120523">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="660" y="176" key="#render_correctly_text_component/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1635885120523" />
+    <state x="669" y="210" key="#test" timestamp="1635885989810">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="669" y="210" key="#test/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1635885989810" />
+    <state width="1876" height="332" key="GridCell.Tab.0.bottom" timestamp="1636300529448">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1492" height="204" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1632067532817" />
     <state width="1876" height="277" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1631831555623" />
-    <state width="1876" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1635794312814" />
+    <state width="1876" height="332" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1636300529448" />
     <state width="1876" height="277" key="GridCell.Tab.0.bottom/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1631313494925" />
-    <state width="1876" height="274" key="GridCell.Tab.0.center" timestamp="1635794312814">
+    <state width="1876" height="332" key="GridCell.Tab.0.center" timestamp="1636300529448">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1492" height="204" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1632067532817" />
     <state width="1876" height="277" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1631831555623" />
-    <state width="1876" height="274" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1635794312814" />
+    <state width="1876" height="332" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1636300529448" />
     <state width="1876" height="277" key="GridCell.Tab.0.center/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1631313494925" />
-    <state width="1876" height="274" key="GridCell.Tab.0.left" timestamp="1635794312813">
+    <state width="1876" height="332" key="GridCell.Tab.0.left" timestamp="1636300529447">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1492" height="204" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1632067532817" />
     <state width="1876" height="277" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1631831555622" />
-    <state width="1876" height="274" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1635794312813" />
+    <state width="1876" height="332" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1636300529447" />
     <state width="1876" height="277" key="GridCell.Tab.0.left/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1631313494925" />
-    <state width="1876" height="274" key="GridCell.Tab.0.right" timestamp="1635794312814">
+    <state width="1876" height="332" key="GridCell.Tab.0.right" timestamp="1636300529448">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1492" height="204" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1632067532817" />
     <state width="1876" height="277" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1631831555623" />
-    <state width="1876" height="274" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1635794312814" />
+    <state width="1876" height="332" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1636300529448" />
     <state width="1876" height="277" key="GridCell.Tab.0.right/1920.0.1536.840/0.0.1920.1050@0.0.1920.1050" timestamp="1631313494925" />
+    <state x="667" y="258" width="585" height="534" key="find.popup" timestamp="1635886360677">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="667" y="258" width="585" height="534" key="find.popup/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1635886360677" />
     <state x="425" y="189" key="run.anything.popup" timestamp="1632056910956">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1632056910956" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1635886366638">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1635886366638" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/expert_system$render_correctly_text_component.info" NAME="render correctly text component Coverage Results" MODIFIED="1635885219623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -11,13 +11,15 @@
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "react-simple-code-editor": "^0.11.0",
+    "react-test-renderer": "^17.0.2",
     "styled-components": "^5.3.1",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "jest": "26.6.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -39,7 +41,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.16.0",
     "colors": "^1.4.0",
-    "console-input": "^1.0.2"
+    "console-input": "^1.0.2",
+    "jest": "^27.3.1"
   }
 }

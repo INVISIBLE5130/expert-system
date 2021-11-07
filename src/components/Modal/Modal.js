@@ -98,7 +98,11 @@ function Modal(props) {
                     {'Expertise result:'}
                 </ModalWrapperWindowResultTitle>
                 <ModalWrapperWindowResultTitle>
-                    {result}
+                    {
+                        result
+                            ? `${data.searchKey} - ${result}`
+                            : 'No data'
+                    }
                 </ModalWrapperWindowResultTitle>
                 <ModalWrapperWindowBodyAnswerButtons>
                     <ModalWrapperWindowBodyAnswerButtonsItem
@@ -189,7 +193,7 @@ function Modal(props) {
                             </>
                             : remoteData.length !== 0
                             ? setQuestion(remoteData[0][1]?.question, remoteData[0][1]?.allows, remoteData[0][0])
-                            : showResult(JSON.stringify(parsedCode.rules.filter(e => JSON.stringify(e.conditions) === JSON.stringify(data.localKeys))[0]?.action))
+                            : showResult(JSON.stringify(parsedCode.rules.filter(e => JSON.stringify(e.conditions) === JSON.stringify(data.localKeys))[0]?.action[data.searchKey]))
                     }
                 </ModalWrapperWindowBody>
             </ModalWrapperWindow>
