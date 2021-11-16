@@ -12,12 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e5b0b5e4-fd67-44a7-874a-c8fdc245a331" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SES_KB.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/SES_KB.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/Modal.test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/__snapshots__/Modal.test.js.snap" beforeDir="false" afterPath="$PROJECT_DIR$/src/__tests__/__snapshots__/Modal.test.js.snap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +155,7 @@
       <workItem from="1635884145415" duration="2701000" />
       <workItem from="1636298430772" duration="5079000" />
       <workItem from="1636622299122" duration="885000" />
-      <workItem from="1637059979198" duration="2330000" />
+      <workItem from="1637059979198" duration="2591000" />
     </task>
     <servers />
   </component>
