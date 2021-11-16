@@ -28,6 +28,14 @@ function Modal(props) {
         searchKey: '',
         localKeys: {}
     })
+    const [answerStatus, setAnswerStatus] = useState(false)
+
+    useEffect(() => {
+        const answer = JSON.stringify(parsedCode.rules.filter(e => JSON.stringify(e.conditions) === JSON.stringify(data.localKeys))[0]?.action[data.searchKey])
+        console.log(answer)
+        if (answer)
+            setAnswerStatus(true)
+    }, [parsedCode, data])
 
     useEffect(() => {
         if (parsedCode !== {}) {
@@ -54,6 +62,7 @@ function Modal(props) {
             searchKey: '',
             localKeys: {}
         })
+        setAnswerStatus(false)
     }
 
     const setQuestion = (question, buttons, q) => {
@@ -89,6 +98,7 @@ function Modal(props) {
             localKeys: {}
         })
         setRemoteData(Object.entries(rData?.data))
+        setAnswerStatus(false)
     }
 
     const showResult = result => {
@@ -122,7 +132,6 @@ function Modal(props) {
 
     const answerIndexHandler = (d) => {
         setRemoteData(remoteData.filter(e => e[0] !== d.question))
-        console.log(d)
         setData({
             searchKey: searchKey,
             localKeys: {
@@ -131,8 +140,6 @@ function Modal(props) {
             }
         })
     }
-
-    console.log(data)
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -155,8 +162,6 @@ function Modal(props) {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [modalRef, modalWindowRef]);
-
-    console.log(remoteData)
 
     return (
         <ModalWrapper
@@ -191,7 +196,7 @@ function Modal(props) {
                                     {'Send'}
                                 </ModalWrapperWindowBodyAnswerButton>
                             </>
-                            : remoteData.length !== 0
+                            : (remoteData.length !== 0 && !answerStatus)
                             ? setQuestion(remoteData[0][1]?.question, remoteData[0][1]?.allows, remoteData[0][0])
                             : showResult(JSON.stringify(parsedCode.rules.filter(e => JSON.stringify(e.conditions) === JSON.stringify(data.localKeys))[0]?.action[data.searchKey]))
                     }

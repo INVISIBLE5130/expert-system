@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check modal 1`] = `
+<div
+  className="sc-fodVek gzdfup"
+>
+  <div
+    className="sc-fFucqa huRzSq"
+  >
+    <div
+      className="sc-bkzYnD crtOkE"
+    >
+      <p
+        className="sc-idOiZg eJCtKS"
+      >
+        Consulting
+      </p>
+      <img
+        className="sc-dIUeWJ gbzGpW"
+        onClick={[Function]}
+        src="close.svg"
+      />
+    </div>
+    <div
+      className="sc-hHfuMS kBfJxG"
+    >
+      <p
+        className="sc-dmlqKv fRTqKP"
+      >
+        What is your search key?
+      </p>
+      <input
+        className="sc-kfzBvY FbVbX"
+        onChange={[Function]}
+        value=""
+      />
+      <button
+        className="sc-crrszt sc-iwyWTf jVhSAi eJjZwV"
+        onClick={[Function]}
+      >
+        Send
+      </button>
+    </div>
+  </div>
+</div>
+`;

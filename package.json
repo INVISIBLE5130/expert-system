@@ -2,6 +2,7 @@
   "name": "expert-system",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://invisible5130.github.io/expert-system/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -19,8 +20,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -44,6 +47,7 @@
     "@babel/preset-react": "^7.16.0",
     "colors": "^1.4.0",
     "console-input": "^1.0.2",
+    "gh-pages": "^3.2.3",
     "jest": "^27.3.1"
   }
 }
